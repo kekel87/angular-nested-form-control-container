@@ -1,0 +1,13 @@
+<fieldset [formGroup]="formArray">
+  <legend>ControlContainer</legend>
+
+  <div *ngFor="let item of formArray.controls; let i = index;" [formGroupName]="i">
+    <input formControlName="email" placeholder="Email">
+
+    <input type="checkbox" *ngFor="let notification of item.get('notifications').controls" [formControl]="notification">
+  </div>
+
+  <button (click)="addNotificationTarget()">ADD</button>
+</fieldset>
+
+

@@ -1,0 +1,30 @@
+<form [formGroup]="form">
+  <app-notifications
+    [email]="email"
+    [notifications]="notifications"
+    formArrayName="notifications">
+  </app-notifications>
+  <pre>{{ form.status }}</pre>
+</form>
+
+<hr>
+
+<form [formGroup]="form2">
+  <app-notifications-cva
+    [email]="email"
+    [notifications]="notifications"
+    formControlName="notifications">
+  </app-notifications-cva>
+  <pre>{{ form2.status }}</pre>
+</form>
+
+<button (click)="simulateValueFromStore()">Simulate value from Store</button>
+
+<hr>
+
+<app-notifications-cva
+  [email]="email"
+  [notifications]="notifications"
+  [ngModel]="model"
+  (ngModelChange)="onChange($event)">
+</app-notifications-cva>
